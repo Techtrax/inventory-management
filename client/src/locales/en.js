@@ -6,6 +6,7 @@ export default {
     orders: 'Orders',
     finance: 'Finance',
     demandForecast: 'Demand Forecast',
+    restocking: 'Restocking',
     companyName: 'Catalyst Components',
     subtitle: 'Inventory Management System'
   },
@@ -126,6 +127,20 @@ export default {
       status: 'Status',
       expectedDelivery: 'Expected Delivery',
       actualDelivery: 'Actual Delivery'
+    },
+    submittedOrders: {
+      title: 'Submitted Orders',
+      noOrders: 'No restocking orders submitted yet',
+      table: {
+        orderNumber: 'Order Number',
+        items: 'Items',
+        budget: 'Budget',
+        totalCost: 'Total Cost',
+        orderDate: 'Order Date',
+        leadTime: 'Lead Time',
+        expectedDelivery: 'Expected Delivery',
+        status: 'Status'
+      }
     }
   },
 
@@ -186,6 +201,61 @@ export default {
       trend: 'Trend',
       period: 'Period'
     }
+  },
+
+  // Restocking
+  restocking: {
+    title: 'Restocking',
+    description: 'Set a budget and get demand-driven restocking recommendations',
+    budgetLabel: 'Available Budget',
+    itemsRecommended: 'Items Recommended',
+    budgetUsed: 'Budget Used',
+    budgetRemaining: 'Budget Remaining',
+    recommendedItems: 'Recommended Items',
+    noRecommendations: 'No items can be recommended at this budget',
+    placeOrder: 'Place Order',
+    placingOrder: 'Placing Order...',
+    orderPlaced: 'Order Placed',
+    orderNumber: 'Order Number',
+    expectedDelivery: 'Expected Delivery',
+    leadTimeDays: '{days}-day lead time',
+    table: {
+      sku: 'SKU',
+      itemName: 'Item Name',
+      currentDemand: 'Current Demand',
+      forecastedDemand: 'Forecasted Demand',
+      trend: 'Trend',
+      quantity: 'Quantity',
+      unitCost: 'Unit Cost',
+      lineTotal: 'Line Total',
+      priority: 'Priority'
+    },
+    priorityReason: {
+      backlog: 'Backlog',
+      below_reorder_point: 'Below Reorder Point',
+      demand_growth: 'Demand Growth'
+    }
+  },
+
+  // Purchase Order Modal
+  purchaseOrder: {
+    createTitle: 'Create Purchase Order',
+    viewTitle: 'Purchase Order Details',
+    unitsShort: 'units short',
+    supplierName: 'Supplier Name',
+    quantity: 'Quantity',
+    unitCost: 'Unit Cost',
+    totalCost: 'Total Cost',
+    expectedDeliveryDate: 'Expected Delivery Date',
+    notes: 'Notes',
+    status: 'Status',
+    createdDate: 'Created Date',
+    units: 'units',
+    close: 'Close',
+    createOrder: 'Create Purchase Order',
+    creating: 'Creating...',
+    createError: 'Failed to create purchase order',
+    notFound: 'No purchase order found for this item'
   },
 
   // Filters
@@ -323,6 +393,7 @@ export default {
     search: 'Search',
     filter: 'Filter',
     export: 'Export',
-    items: 'items'
+    items: 'items',
+    days: 'days'
   }
 }

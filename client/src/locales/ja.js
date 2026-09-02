@@ -6,6 +6,7 @@ export default {
     orders: '注文',
     finance: '財務',
     demandForecast: '需要予測',
+    restocking: '補充',
     companyName: '触媒コンポーネンツ',
     subtitle: '在庫管理システム'
   },
@@ -126,6 +127,20 @@ export default {
       status: 'ステータス',
       expectedDelivery: '予定配達日',
       actualDelivery: '実際の配達日'
+    },
+    submittedOrders: {
+      title: '提出済み注文',
+      noOrders: 'まだ補充注文が提出されていません',
+      table: {
+        orderNumber: '注文番号',
+        items: '品目',
+        budget: '予算',
+        totalCost: '合計金額',
+        orderDate: '注文日',
+        leadTime: '納期',
+        expectedDelivery: '予定配達日',
+        status: 'ステータス'
+      }
     }
   },
 
@@ -186,6 +201,61 @@ export default {
       trend: 'トレンド',
       period: '期間'
     }
+  },
+
+  // Restocking
+  restocking: {
+    title: '補充',
+    description: '予算を設定し、需要に基づいた補充提案を取得します',
+    budgetLabel: '利用可能な予算',
+    itemsRecommended: '提案品目数',
+    budgetUsed: '使用予算',
+    budgetRemaining: '残り予算',
+    recommendedItems: '提案品目',
+    noRecommendations: 'この予算では提案できる品目がありません',
+    placeOrder: '注文する',
+    placingOrder: '注文中...',
+    orderPlaced: '注文完了',
+    orderNumber: '注文番号',
+    expectedDelivery: '予定配達日',
+    leadTimeDays: '納期{days}日',
+    table: {
+      sku: 'SKU',
+      itemName: '品目名',
+      currentDemand: '現在の需要',
+      forecastedDemand: '予測需要',
+      trend: 'トレンド',
+      quantity: '数量',
+      unitCost: '単価',
+      lineTotal: '小計',
+      priority: '優先度'
+    },
+    priorityReason: {
+      backlog: 'バックログ',
+      below_reorder_point: '再注文点以下',
+      demand_growth: '需要増加'
+    }
+  },
+
+  // Purchase Order Modal
+  purchaseOrder: {
+    createTitle: '発注書を作成',
+    viewTitle: '発注書の詳細',
+    unitsShort: '個不足',
+    supplierName: 'サプライヤー名',
+    quantity: '数量',
+    unitCost: '単価',
+    totalCost: '合計金額',
+    expectedDeliveryDate: '納品予定日',
+    notes: '備考',
+    status: 'ステータス',
+    createdDate: '作成日',
+    units: '個',
+    close: '閉じる',
+    createOrder: '発注書を作成',
+    creating: '作成中...',
+    createError: '発注書の作成に失敗しました',
+    notFound: 'この品目の発注書が見つかりません'
   },
 
   // Filters
@@ -323,7 +393,8 @@ export default {
     search: '検索',
     filter: 'フィルター',
     export: 'エクスポート',
-    items: '件'
+    items: '件',
+    days: '日'
   },
 
   // Product Names

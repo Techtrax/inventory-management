@@ -29,6 +29,43 @@
 
       <div class="card">
         <div class="card-header">
+          <h3 class="card-title">{{ t('orders.submittedOrders.title') }} ({{ submittedOrders.length }})</h3>
+        </div>
+        <div v-if="submittedOrders.length === 0" class="empty-state">
+          {{ t('orders.submittedOrders.noOrders') }}
+        </div>
+        <div v-else class="table-container">
+          <table class="submitted-orders-table">
+            <thead>
+              <tr>
+                <th>{{ t('orders.submittedOrders.table.orderNumber') }}</th>
+                <th>{{ t('orders.submittedOrders.table.items') }}</th>
+                <th>{{ t('orders.submittedOrders.table.budget') }}</th>
+                <th>{{ t('orders.submittedOrders.table.totalCost') }}</th>
+                <th>{{ t('orders.submittedOrders.table.orderDate') }}</th>
+                <th>{{ t('orders.submittedOrders.table.leadTime') }}</th>
+                <th>{{ t('orders.submittedOrders.table.expectedDelivery') }}</th>
+                <th>{{ t('orders.submittedOrders.table.status') }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="order in submittedOrders" :key="order.id">
+                <td><strong>{{ order.order_number }}</strong></td>
+                <td>{{ t('orders.itemsCount', { count: order.items.length }) }}</td>
+                <td>{{ currencySymbol }}{{ order.budget.toLocaleString() }}</td>
+                <td>{{ currencySymbol }}{{ order.total_cost.toLocaleString() }}</td>
+                <td>{{ formatDate(order.order_date) }}</td>
+                <td>{{ order.lead_time_days }} {{ t('common.days') }}</td>
+                <td>{{ formatDate(order.expected_delivery) }}</td>
+                <td><span class="badge info">{{ order.status }}</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
           <h3 class="card-title">{{ t('orders.allOrders') }} ({{ orders.length }})</h3>
         </div>
         <div class="table-container">
@@ -95,6 +132,7 @@ export default {
     const loading = ref(true)
     const error = ref(null)
     const orders = ref([])
+    const submittedOrders = ref([])
 
     // Use shared filters
     const {
@@ -121,6 +159,14 @@ export default {
         error.value = 'Failed to load orders: ' + err.message
       } finally {
         loading.value = false
+      }
+    }
+
+    const loadSubmittedOrders = async () => {
+      try {
+        submittedOrders.value = await api.getRestockingOrders()
+      } catch (err) {
+        console.error('Failed to load submitted orders:', err)
       }
     }
 
@@ -153,13 +199,17 @@ export default {
       })
     }
 
-    onMounted(loadOrders)
+    onMounted(() => {
+      loadOrders()
+      loadSubmittedOrders()
+    })
 
     return {
       t,
       loading,
       error,
       orders,
+      submittedOrders,
       getOrdersByStatus,
       getOrderStatusClass,
       formatDate,
@@ -172,6 +222,19 @@ export default {
 </script>
 
 <style scoped>
+/* Empty state for submitted orders */
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #64748b;
+  font-size: 0.938rem;
+}
+
+/* Submitted restocking orders table */
+.submitted-orders-table {
+  width: 100%;
+}
+
 /* Fixed table layout to prevent column shifting */
 .orders-table {
   table-layout: fixed;
