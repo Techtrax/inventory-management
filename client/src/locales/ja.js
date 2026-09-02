@@ -237,6 +237,27 @@ export default {
     }
   },
 
+  // Purchase Order Modal
+  purchaseOrder: {
+    createTitle: '発注書を作成',
+    viewTitle: '発注書の詳細',
+    unitsShort: '個不足',
+    supplierName: 'サプライヤー名',
+    quantity: '数量',
+    unitCost: '単価',
+    totalCost: '合計金額',
+    expectedDeliveryDate: '納品予定日',
+    notes: '備考',
+    status: 'ステータス',
+    createdDate: '作成日',
+    units: '個',
+    close: '閉じる',
+    createOrder: '発注書を作成',
+    creating: '作成中...',
+    createError: '発注書の作成に失敗しました',
+    notFound: 'この品目の発注書が見つかりません'
+  },
+
   // Filters
   filters: {
     timePeriod: '期間',

@@ -237,6 +237,27 @@ export default {
     }
   },
 
+  // Purchase Order Modal
+  purchaseOrder: {
+    createTitle: 'Create Purchase Order',
+    viewTitle: 'Purchase Order Details',
+    unitsShort: 'units short',
+    supplierName: 'Supplier Name',
+    quantity: 'Quantity',
+    unitCost: 'Unit Cost',
+    totalCost: 'Total Cost',
+    expectedDeliveryDate: 'Expected Delivery Date',
+    notes: 'Notes',
+    status: 'Status',
+    createdDate: 'Created Date',
+    units: 'units',
+    close: 'Close',
+    createOrder: 'Create Purchase Order',
+    creating: 'Creating...',
+    createError: 'Failed to create purchase order',
+    notFound: 'No purchase order found for this item'
+  },
+
   // Filters
   filters: {
     timePeriod: 'Time Period',
